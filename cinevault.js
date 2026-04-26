@@ -1,3 +1,50 @@
+/* ─────────────────────────────────────────
+   CINERAMA — cinevault.js
+   SPA Navigation + Modal + UI interactions
+───────────────────────────────────────── */
+
+// ── NAVIGATION ──────────────────────────
+function navigateTo(pageId) {
+  // Hide all pages
+  document.querySelectorAll('.page').forEach(p => {
+    p.classList.remove('active');
+  });
+
+  // Show target page
+  const target = document.getElementById('page-' + pageId);
+  if (target) {
+    target.classList.add('active');
+    // Re-trigger animation
+    target.style.animation = 'none';
+    target.offsetHeight; // reflow
+    target.style.animation = '';
+  }
+
+  // Update active nav link
+  document.querySelectorAll('nav ul a').forEach(a => {
+    a.classList.remove('nav-active');
+    if (a.dataset.page === pageId) a.classList.add('nav-active');
+  });
+
+  // Scroll to top
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// Set initial active nav link
+document.addEventListener('DOMContentLoaded', () => {
+  const firstLink = document.querySelector('nav ul a[data-page="beranda"]');
+  if (firstLink) firstLink.classList.add('nav-active');
+
+  // Genre pill interactivity
+  document.querySelectorAll('.genre-pill').forEach(pill => {
+    pill.addEventListener('click', () => {
+      document.querySelectorAll('.genre-pill').forEach(p => p.classList.remove('active'));
+      pill.classList.add('active');
+    });
+  });
+});
+
+// ── MOVIE DATA ──────────────────────────
 const movies = {
   oppenheimer: {
     title: 'Oppenheimer',
@@ -41,9 +88,11 @@ const movies = {
   }
 };
 
+// ── MODAL ───────────────────────────────
 function openModal(id) {
   const m = movies[id];
   if (!m) return;
+
   document.getElementById('modal-title').textContent = m.title;
   document.getElementById('modal-genre').textContent = m.genre;
   document.getElementById('modal-year').textContent = m.year;
@@ -51,24 +100,26 @@ function openModal(id) {
   document.getElementById('modal-rating').textContent = m.rating;
   document.getElementById('modal-poster').src = m.poster;
   document.getElementById('modal-desc').textContent = m.desc;
+
   const castEl = document.getElementById('modal-cast');
   castEl.innerHTML = m.cast.map(c => {
     const [icon, ...name] = c.split(' ');
-    return `<div class="cast-avatar"><div class="cast-circle">${icon}</div><div class="cast-name">${name.join(' ')}</div></div>`;
+    return `<div class="cast-avatar">
+      <div class="cast-circle">${icon}</div>
+      <div class="cast-name">${name.join(' ')}</div>
+    </div>`;
   }).join('');
+
   document.getElementById('modal').classList.add('open');
+  document.body.style.overflow = 'hidden';
 }
 
 function closeModal() {
   document.getElementById('modal').classList.remove('open');
+  document.body.style.overflow = '';
 }
 
-document.addEventListener('keydown', e => { if(e.key === 'Escape') closeModal(); });
-
-// Genre pill interactivity
-document.querySelectorAll('.genre-pill').forEach(pill => {
-  pill.addEventListener('click', () => {
-    document.querySelectorAll('.genre-pill').forEach(p => p.classList.remove('active'));
-    pill.classList.add('active');
-  });
+// Close modal on Escape key
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeModal();
 });

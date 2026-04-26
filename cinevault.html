@@ -1,0 +1,490 @@
+﻿<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CineVault - Temukan Film Terbaik</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="cinevault.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <a class="logo" href="#" onclick="navigateTo('beranda'); return false;">Cine<span>Vault</span></a>
+  <ul>
+    <li><a href="#" data-page="beranda" onclick="navigateTo('beranda'); return false;">Beranda</a></li>
+    <li><a href="#" data-page="terbaru" onclick="navigateTo('terbaru'); return false;">Film Terbaru</a></li>
+    <li><a href="#" data-page="genre" onclick="navigateTo('genre'); return false;">Genre</a></li>
+    <li><a href="#" data-page="top100" onclick="navigateTo('top100'); return false;">Top 100</a></li>
+    <li><a href="#" data-page="seri" onclick="navigateTo('seri'); return false;">Seri</a></li>
+  </ul>
+  <button class="nav-btn">Masuk</button>
+</nav>
+
+<!-- ==================== PAGE: BERANDA ==================== -->
+<div id="page-beranda" class="page active">
+
+  <div class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-gradient"></div>
+    <div class="hero-content">
+      <div class="hero-badge">
+        <svg width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="5" fill="#e8c97e"/></svg>
+        Sedang Tayang Sekarang
+      </div>
+      <h1>Temukan <em>Film</em><br>yang Sempurna<br>Untuk Malam Ini</h1>
+      <p>Lebih dari 10.000 judul film & serial dari seluruh dunia. Dari blockbuster Hollywood hingga sinema indie terbaik.</p>
+      <div class="hero-actions">
+        <a class="btn-primary" href="#" onclick="openModal('oppenheimer'); return false;">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="white"><polygon points="5,3 13,8 5,13"/></svg>
+          Tonton Sekarang
+        </a>
+        <a class="btn-secondary" href="#">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="white" stroke-width="1.5"><circle cx="8" cy="8" r="7"/><path d="M6 8h4M8 6v4"/></svg>
+          Tambah ke Daftar
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="search-bar">
+    <div class="search-input-wrap">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="white" stroke-width="1.5"><circle cx="7" cy="7" r="5"/><path d="m11 11 3 3"/></svg>
+      <input class="search-input" type="text" placeholder="Cari judul film, sutradara, atau aktor...">
+    </div>
+    <select class="genre-select">
+      <option>Semua Genre</option>
+      <option>Aksi</option><option>Drama</option><option>Komedi</option>
+      <option>Horor</option><option>Sci-Fi</option><option>Romansa</option>
+      <option>Thriller</option><option>Animasi</option>
+    </select>
+    <select class="genre-select">
+      <option>Tahun Rilis</option>
+      <option>2024</option><option>2023</option><option>2022</option>
+      <option>2010-2020</option><option>Klasik</option>
+    </select>
+    <button class="search-btn">Cari Film</button>
+  </div>
+
+  <section style="padding-bottom: 0;">
+    <div class="genre-pills">
+      <button class="genre-pill active">Semua</button>
+      <button class="genre-pill">Aksi</button>
+      <button class="genre-pill">Drama</button>
+      <button class="genre-pill">Komedi</button>
+      <button class="genre-pill">Horor</button>
+      <button class="genre-pill">Sci-Fi</button>
+      <button class="genre-pill">Romansa</button>
+      <button class="genre-pill">Thriller</button>
+      <button class="genre-pill">Animasi</button>
+      <button class="genre-pill">Award Winner</button>
+      <button class="genre-pill">Film Indonesia</button>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-header">
+      <h2 class="section-title">Trending <span>Minggu Ini</span></h2>
+      <a class="see-all" href="#" onclick="navigateTo('terbaru'); return false;">Lihat Semua →</a>
+    </div>
+    <div class="movie-grid">
+      <div class="movie-card" onclick="openModal('oppenheimer')">
+        <img class="movie-poster" src="https://images.unsplash.com/photo-1594908900066-3f47337549d8?w=400&q=80" alt="Oppenheimer">
+        <div class="movie-overlay"><div class="overlay-genre">Biografi • Drama</div><div class="overlay-desc">Kisah J. Robert Oppenheimer dan perannya dalam pengembangan bom atom selama Perang Dunia II.</div><button class="overlay-btn">▶ Tonton</button></div>
+        <div class="movie-info"><div class="movie-title">Oppenheimer</div><div class="movie-meta"><span class="movie-year">2023</span><span class="movie-rating">★ 8.9</span></div></div>
+      </div>
+      <div class="movie-card" onclick="openModal('dune2')">
+        <img class="movie-poster" src="https://images.unsplash.com/photo-1446776877081-d282a0f896e2?w=400&q=80" alt="Dune 2">
+        <div class="movie-overlay"><div class="overlay-genre">Sci-Fi • Petualangan</div><div class="overlay-desc">Paul Atreides bersatu dengan Chani dan Fremen untuk melakukan perang suci melawan para penindas.</div><button class="overlay-btn">▶ Tonton</button></div>
+        <div class="movie-info"><div class="movie-title">Dune: Part Two</div><div class="movie-meta"><span class="movie-year">2024</span><span class="movie-rating">★ 8.7</span></div></div>
+      </div>
+      <div class="movie-card" onclick="openModal('godzilla')">
+        <img class="movie-poster" src="https://images.unsplash.com/photo-1485846234645-a62644f84728?w=400&q=80" alt="Godzilla">
+        <div class="movie-overlay"><div class="overlay-genre">Aksi • Monster</div><div class="overlay-desc">Godzilla berhadapan dengan ancaman baru yang lebih mematikan dari kedalaman samudra.</div><button class="overlay-btn">▶ Tonton</button></div>
+        <div class="movie-info"><div class="movie-title">Godzilla × Kong</div><div class="movie-meta"><span class="movie-year">2024</span><span class="movie-rating">★ 7.2</span></div></div>
+      </div>
+      <div class="movie-card" onclick="openModal('inside')">
+        <img class="movie-poster" src="https://images.unsplash.com/photo-1519682337058-a94d519337bc?w=400&q=80" alt="Inside Out 2">
+        <div class="movie-overlay"><div class="overlay-genre">Animasi • Keluarga</div><div class="overlay-desc">Riley kini remaja dan emosi-emosi baru hadir mengguncang dunia dalam dirinya.</div><button class="overlay-btn">▶ Tonton</button></div>
+        <div class="movie-info"><div class="movie-title">Inside Out 2</div><div class="movie-meta"><span class="movie-year">2024</span><span class="movie-rating">★ 7.8</span></div></div>
+      </div>
+      <div class="movie-card">
+        <img class="movie-poster" src="https://images.unsplash.com/photo-1509347528160-9a9e33742cdb?w=400&q=80" alt="Aquaman">
+        <div class="movie-overlay"><div class="overlay-genre">Superhero • Aksi</div><div class="overlay-desc">Arthur Curry kembali sebagai Aquaman untuk menghadapi ancaman baru dari kedalaman laut.</div><button class="overlay-btn">▶ Tonton</button></div>
+        <div class="movie-info"><div class="movie-title">Aquaman 2</div><div class="movie-meta"><span class="movie-year">2023</span><span class="movie-rating">★ 6.5</span></div></div>
+      </div>
+      <div class="movie-card">
+        <img class="movie-poster" src="https://images.unsplash.com/photo-1611095564985-9c2d8c3e8d3a?w=400&q=80" alt="Poor Things">
+        <div class="movie-overlay"><div class="overlay-genre">Drama • Fantasi</div><div class="overlay-desc">Seorang wanita muda yang dihidupkan kembali oleh seorang ilmuwan eksentrik menjelajahi dunia.</div><button class="overlay-btn">▶ Tonton</button></div>
+        <div class="movie-info"><div class="movie-title">Poor Things</div><div class="movie-meta"><span class="movie-year">2023</span><span class="movie-rating">★ 8.1</span></div></div>
+      </div>
+      <div class="movie-card">
+        <img class="movie-poster" src="https://images.unsplash.com/photo-1542204165-65bf26472b9b?w=400&q=80" alt="Saltburn">
+        <div class="movie-overlay"><div class="overlay-genre">Thriller • Drama</div><div class="overlay-desc">Seorang mahasiswa Oxford terobsesi dengan kehidupan mewah teman baru dan keluarganya.</div><button class="overlay-btn">▶ Tonton</button></div>
+        <div class="movie-info"><div class="movie-title">Saltburn</div><div class="movie-meta"><span class="movie-year">2023</span><span class="movie-rating">★ 7.3</span></div></div>
+      </div>
+      <div class="movie-card">
+        <img class="movie-poster" src="https://images.unsplash.com/photo-1533562376170-bc66ca7e7e7b?w=400&q=80" alt="Past Lives">
+        <div class="movie-overlay"><div class="overlay-genre">Romansa • Drama</div><div class="overlay-desc">Dua sahabat masa kecil yang terpisah bertemu kembali dua puluh tahun kemudian di New York.</div><button class="overlay-btn">▶ Tonton</button></div>
+        <div class="movie-info"><div class="movie-title">Past Lives</div><div class="movie-meta"><span class="movie-year">2023</span><span class="movie-rating">★ 7.9</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="stats-row">
+    <div class="stats-inner">
+      <div class="stat-item"><div class="stat-number">10K+</div><div class="stat-label">Judul Film</div></div>
+      <div class="stat-item"><div class="stat-number">500K+</div><div class="stat-label">Pengguna Aktif</div></div>
+      <div class="stat-item"><div class="stat-number">4.8</div><div class="stat-label">Rating Pengguna</div></div>
+      <div class="stat-item"><div class="stat-number">50+</div><div class="stat-label">Genre Tersedia</div></div>
+    </div>
+  </div>
+
+  <section>
+    <div class="section-header">
+      <h2 class="section-title">Koleksi <span>Terpilih</span></h2>
+    </div>
+    <div class="featured-scroll">
+      <div class="featured-card">
+        <img class="featured-bg" src="https://images.unsplash.com/photo-1531259683007-016a7b628fc3?w=700&q=80" alt="Oscar">
+        <div class="featured-info"><div class="featured-label">🏆 Koleksi</div><div class="featured-title">Pemenang Oscar 2024</div><div class="featured-sub">23 Film • Diperbarui Maret 2024</div></div>
+      </div>
+      <div class="featured-card">
+        <img class="featured-bg" src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=700&q=80" alt="Anime">
+        <div class="featured-info"><div class="featured-label">🎌 Pilihan</div><div class="featured-title">Anime Terbaik Sepanjang Masa</div><div class="featured-sub">45 Film • Studio Ghibli & Lainnya</div></div>
+      </div>
+      <div class="featured-card">
+        <img class="featured-bg" src="https://images.unsplash.com/photo-1555680202-c86f0e12f086?w=700&q=80" alt="Indonesia">
+        <div class="featured-info"><div class="featured-label">🇮🇩 Lokal</div><div class="featured-title">Sinema Indonesia Terbaik</div><div class="featured-sub">60 Film • Dari Alam ke Layar</div></div>
+      </div>
+      <div class="featured-card">
+        <img class="featured-bg" src="https://images.unsplash.com/photo-1440404653325-ab127d49abc1?w=700&q=80" alt="Klasik">
+        <div class="featured-info"><div class="featured-label">🎞️ Klasik</div><div class="featured-title">Film Klasik Wajib Tonton</div><div class="featured-sub">100 Film • Sebelum Era Digital</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-header">
+      <h2 class="section-title">Film <span>Indonesia</span></h2>
+    </div>
+    <div class="movie-grid">
+      <div class="movie-card">
+        <img class="movie-poster" src="https://images.unsplash.com/photo-1552083375-1447ce886485?w=400&q=80" alt="KKN">
+        <div class="movie-overlay"><div class="overlay-genre">Horor • Mistis</div><div class="overlay-desc">Enam mahasiswa KKN mengalami kejadian supranatural yang mengerikan di sebuah desa terpencil.</div><button class="overlay-btn">▶ Tonton</button></div>
+        <div class="movie-info"><div class="movie-title">KKN di Desa Penari</div><div class="movie-meta"><span class="movie-year">2022</span><span class="movie-rating">★ 7.6</span></div></div>
+      </div>
+      <div class="movie-card">
+        <img class="movie-poster" src="https://images.unsplash.com/photo-1574267432553-4b4628081c31?w=400&q=80" alt="Pengabdi Setan">
+        <div class="movie-overlay"><div class="overlay-genre">Horor • Thriller</div><div class="overlay-desc">Teror berlanjut dalam sekuel film horor terlaris Indonesia yang menggemparkan.</div><button class="overlay-btn">▶ Tonton</button></div>
+        <div class="movie-info"><div class="movie-title">Pengabdi Setan 2</div><div class="movie-meta"><span class="movie-year">2022</span><span class="movie-rating">★ 7.4</span></div></div>
+      </div>
+      <div class="movie-card">
+        <img class="movie-poster" src="https://images.unsplash.com/photo-1600267204091-5c1ab8b10c02?w=400&q=80" alt="Laskar Pelangi">
+        <div class="movie-overlay"><div class="overlay-genre">Drama • Keluarga</div><div class="overlay-desc">Kisah mengharukan tentang ikatan keluarga dan perjuangan dalam balutan keindahan alam Nusantara.</div><button class="overlay-btn">▶ Tonton</button></div>
+        <div class="movie-info"><div class="movie-title">Laskar Pelangi</div><div class="movie-meta"><span class="movie-year">2008</span><span class="movie-rating">★ 8.2</span></div></div>
+      </div>
+      <div class="movie-card">
+        <img class="movie-poster" src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&q=80" alt="The Raid">
+        <div class="movie-overlay"><div class="overlay-genre">Aksi • Laga</div><div class="overlay-desc">Tim SWAT terjebak di sebuah gedung kumuh yang dikuasai bandit berbahaya di Jakarta.</div><button class="overlay-btn">▶ Tonton</button></div>
+        <div class="movie-info"><div class="movie-title">The Raid</div><div class="movie-meta"><span class="movie-year">2011</span><span class="movie-rating">★ 8.0</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-logo">Cine<span>Vault</span></div>
+        <div class="footer-desc">Platform streaming & panduan film terbaik untuk penikmat sinema Indonesia.</div>
+      </div>
+      <div class="footer-col">
+        <h4>Jelajahi</h4>
+        <ul>
+          <li><a href="#" onclick="navigateTo('terbaru'); return false;">Film Terbaru</a></li>
+          <li><a href="#" onclick="navigateTo('top100'); return false;">Top 100</a></li>
+          <li><a href="#" onclick="navigateTo('seri'); return false;">Serial TV</a></li>
+          <li><a href="#" onclick="navigateTo('genre'); return false;">Semua Genre</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Genre</h4>
+        <ul>
+          <li><a href="#" onclick="navigateTo('genre'); return false;">Aksi & Petualangan</a></li>
+          <li><a href="#" onclick="navigateTo('genre'); return false;">Drama & Romansa</a></li>
+          <li><a href="#" onclick="navigateTo('genre'); return false;">Horor & Thriller</a></li>
+          <li><a href="#" onclick="navigateTo('genre'); return false;">Animasi</a></li>
+          <li><a href="#" onclick="navigateTo('genre'); return false;">Sci-Fi & Fantasi</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Tentang</h4>
+        <ul>
+          <li><a href="#">Tentang Kami</a></li>
+          <li><a href="#">Blog Film</a></li>
+          <li><a href="#">Karir</a></li>
+          <li><a href="#">Kontak</a></li>
+          <li><a href="#">Kebijakan Privasi</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2024 CineVault. Dibuat untuk para pecinta film Indonesia.</p>
+      <p>Semua konten hanya untuk tujuan demonstrasi.</p>
+    </div>
+  </footer>
+
+</div><!-- /page-beranda -->
+
+
+<!-- ==================== PAGE: FILM TERBARU ==================== -->
+<div id="page-terbaru" class="page">
+  <div class="page-hero">
+    <h1 class="page-hero-title">Film <em>Terbaru</em></h1>
+    <p class="page-hero-sub">Update setiap minggu — film-film paling anyar dari seluruh penjuru dunia</p>
+  </div>
+  <section>
+    <div class="section-header">
+      <h2 class="section-title">Rilis <span>2024</span></h2>
+    </div>
+    <div class="movie-grid">
+      <div class="movie-card" onclick="openModal('dune2')">
+        <img class="movie-poster" src="https://images.unsplash.com/photo-1446776877081-d282a0f896e2?w=400&q=80" alt="Dune 2">
+        <div class="movie-overlay"><div class="overlay-genre">Sci-Fi • Epik</div><div class="overlay-desc">Kelanjutan epik Paul Atreides di planet gurun Arrakis.</div><button class="overlay-btn">▶ Tonton</button></div>
+        <div class="movie-info"><div class="movie-title">Dune: Part Two</div><div class="movie-meta"><span class="movie-year">Mar 2024</span><span class="movie-rating">★ 8.7</span></div></div>
+      </div>
+      <div class="movie-card" onclick="openModal('godzilla')">
+        <img class="movie-poster" src="https://images.unsplash.com/photo-1485846234645-a62644f84728?w=400&q=80" alt="Godzilla">
+        <div class="movie-overlay"><div class="overlay-genre">Aksi • Monster</div><div class="overlay-desc">Dua titan bersatu melawan ancaman baru yang lebih mematikan.</div><button class="overlay-btn">▶ Tonton</button></div>
+        <div class="movie-info"><div class="movie-title">Godzilla × Kong</div><div class="movie-meta"><span class="movie-year">Apr 2024</span><span class="movie-rating">★ 7.2</span></div></div>
+      </div>
+      <div class="movie-card" onclick="openModal('inside')">
+        <img class="movie-poster" src="https://images.unsplash.com/photo-1519682337058-a94d519337bc?w=400&q=80" alt="Inside Out 2">
+        <div class="movie-overlay"><div class="overlay-genre">Animasi • Keluarga</div><div class="overlay-desc">Emosi baru hadir saat Riley memasuki masa remaja.</div><button class="overlay-btn">▶ Tonton</button></div>
+        <div class="movie-info"><div class="movie-title">Inside Out 2</div><div class="movie-meta"><span class="movie-year">Jun 2024</span><span class="movie-rating">★ 7.8</span></div></div>
+      </div>
+      <div class="movie-card">
+        <img class="movie-poster" src="https://images.unsplash.com/photo-1509347528160-9a9e33742cdb?w=400&q=80" alt="Furiosa">
+        <div class="movie-overlay"><div class="overlay-genre">Aksi • Post-Apocalyptic</div><div class="overlay-desc">Kisah asal-usul Furiosa sebelum bertemu Mad Max.</div><button class="overlay-btn">▶ Tonton</button></div>
+        <div class="movie-info"><div class="movie-title">Furiosa</div><div class="movie-meta"><span class="movie-year">Mei 2024</span><span class="movie-rating">★ 7.8</span></div></div>
+      </div>
+      <div class="movie-card">
+        <img class="movie-poster" src="https://images.unsplash.com/photo-1611095564985-9c2d8c3e8d3a?w=400&q=80" alt="Civil War">
+        <div class="movie-overlay"><div class="overlay-genre">Drama • Perang</div><div class="overlay-desc">Jurnalis meliput perang saudara yang memporak-porandakan Amerika.</div><button class="overlay-btn">▶ Tonton</button></div>
+        <div class="movie-info"><div class="movie-title">Civil War</div><div class="movie-meta"><span class="movie-year">Apr 2024</span><span class="movie-rating">★ 7.3</span></div></div>
+      </div>
+      <div class="movie-card">
+        <img class="movie-poster" src="https://images.unsplash.com/photo-1542204165-65bf26472b9b?w=400&q=80" alt="Alien">
+        <div class="movie-overlay"><div class="overlay-genre">Sci-Fi • Horor</div><div class="overlay-desc">Generasi muda menghadapi alien paling mematikan di antariksa.</div><button class="overlay-btn">▶ Tonton</button></div>
+        <div class="movie-info"><div class="movie-title">Alien: Romulus</div><div class="movie-meta"><span class="movie-year">Agu 2024</span><span class="movie-rating">★ 7.4</span></div></div>
+      </div>
+    </div>
+
+    <div class="section-header" style="margin-top: 56px;">
+      <h2 class="section-title">Segera <span>Hadir</span></h2>
+    </div>
+    <div class="coming-soon-list">
+      <div class="coming-card">
+        <div class="coming-date">Nov 2024</div>
+        <div class="coming-info">
+          <div class="coming-title">Gladiator II</div>
+          <div class="coming-genre">Aksi • Sejarah • Epik</div>
+          <div class="coming-desc">Sequel dari film pemenang Oscar, kembali ke arena Colosseum Roma yang megah.</div>
+        </div>
+        <div class="coming-badge">Segera</div>
+      </div>
+      <div class="coming-card">
+        <div class="coming-date">Des 2024</div>
+        <div class="coming-info">
+          <div class="coming-title">Mufasa: The Lion King</div>
+          <div class="coming-genre">Animasi • Petualangan • Musikal</div>
+          <div class="coming-desc">Kisah asal usul Mufasa, raja hutan yang legendaris sebelum kelahiran Simba.</div>
+        </div>
+        <div class="coming-badge">Segera</div>
+      </div>
+      <div class="coming-card">
+        <div class="coming-date">2025</div>
+        <div class="coming-info">
+          <div class="coming-title">Avatar 3</div>
+          <div class="coming-genre">Sci-Fi • Fantasi • Petualangan</div>
+          <div class="coming-desc">Jake Sully dan Neytiri kembali menghadapi ancaman baru di dunia Pandora yang memukau.</div>
+        </div>
+        <div class="coming-badge">Akan Datang</div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ==================== PAGE: GENRE ==================== -->
+<div id="page-genre" class="page">
+  <div class="page-hero">
+    <h1 class="page-hero-title">Jelajahi <em>Genre</em></h1>
+    <p class="page-hero-sub">Temukan film sesuai suasana hatimu hari ini</p>
+  </div>
+  <section>
+    <div class="genre-big-grid">
+      <div class="genre-big-card" style="--gc: #8a1a17;"><div class="genre-icon">🎬</div><div class="genre-big-name">Aksi</div><div class="genre-big-count">1.240 Film</div></div>
+      <div class="genre-big-card" style="--gc: #1a3a6a;"><div class="genre-icon">💔</div><div class="genre-big-name">Drama</div><div class="genre-big-count">2.108 Film</div></div>
+      <div class="genre-big-card" style="--gc: #6a5000;"><div class="genre-icon">😂</div><div class="genre-big-name">Komedi</div><div class="genre-big-count">980 Film</div></div>
+      <div class="genre-big-card" style="--gc: #0f2e22;"><div class="genre-icon">👻</div><div class="genre-big-name">Horor</div><div class="genre-big-count">756 Film</div></div>
+      <div class="genre-big-card" style="--gc: #0d1f3c;"><div class="genre-icon">🚀</div><div class="genre-big-name">Sci-Fi</div><div class="genre-big-count">634 Film</div></div>
+      <div class="genre-big-card" style="--gc: #3d1a4d;"><div class="genre-icon">❤️</div><div class="genre-big-name">Romansa</div><div class="genre-big-count">890 Film</div></div>
+      <div class="genre-big-card" style="--gc: #2a2a0d;"><div class="genre-icon">🔪</div><div class="genre-big-name">Thriller</div><div class="genre-big-count">710 Film</div></div>
+      <div class="genre-big-card" style="--gc: #0d3030;"><div class="genre-icon">🎨</div><div class="genre-big-name">Animasi</div><div class="genre-big-count">430 Film</div></div>
+      <div class="genre-big-card" style="--gc: #2d1a00;"><div class="genre-icon">🗺️</div><div class="genre-big-name">Petualangan</div><div class="genre-big-count">560 Film</div></div>
+      <div class="genre-big-card" style="--gc: #1a2d1a;"><div class="genre-icon">📜</div><div class="genre-big-name">Sejarah</div><div class="genre-big-count">320 Film</div></div>
+    </div>
+  </section>
+</div>
+
+<!-- ==================== PAGE: TOP 100 ==================== -->
+<div id="page-top100" class="page">
+  <div class="page-hero">
+    <h1 class="page-hero-title">Top <em>100</em></h1>
+    <p class="page-hero-sub">Film-film terbaik sepanjang masa versi pengguna CineVault</p>
+  </div>
+  <section>
+    <div class="top-list">
+      <div class="top-item" onclick="openModal('oppenheimer')">
+        <div class="top-rank">01</div>
+        <img class="top-thumb" src="https://images.unsplash.com/photo-1594908900066-3f47337549d8?w=120&q=80" alt="Oppenheimer">
+        <div class="top-info"><div class="top-title">Oppenheimer</div><div class="top-meta">Christopher Nolan • 2023 • Biografi, Drama</div></div>
+        <div class="top-score">★ 8.9</div>
+      </div>
+      <div class="top-item" onclick="openModal('dune2')">
+        <div class="top-rank">02</div>
+        <img class="top-thumb" src="https://images.unsplash.com/photo-1446776877081-d282a0f896e2?w=120&q=80" alt="Dune 2">
+        <div class="top-info"><div class="top-title">Dune: Part Two</div><div class="top-meta">Denis Villeneuve • 2024 • Sci-Fi, Epik</div></div>
+        <div class="top-score">★ 8.7</div>
+      </div>
+      <div class="top-item">
+        <div class="top-rank">03</div>
+        <img class="top-thumb" src="https://images.unsplash.com/photo-1533562376170-bc66ca7e7e7b?w=120&q=80" alt="Past Lives">
+        <div class="top-info"><div class="top-title">Past Lives</div><div class="top-meta">Celine Song • 2023 • Romansa, Drama</div></div>
+        <div class="top-score">★ 7.9</div>
+      </div>
+      <div class="top-item" onclick="openModal('inside')">
+        <div class="top-rank">04</div>
+        <img class="top-thumb" src="https://images.unsplash.com/photo-1519682337058-a94d519337bc?w=120&q=80" alt="Inside Out 2">
+        <div class="top-info"><div class="top-title">Inside Out 2</div><div class="top-meta">Kelsey Mann • 2024 • Animasi, Keluarga</div></div>
+        <div class="top-score">★ 7.8</div>
+      </div>
+      <div class="top-item">
+        <div class="top-rank">05</div>
+        <img class="top-thumb" src="https://images.unsplash.com/photo-1611095564985-9c2d8c3e8d3a?w=120&q=80" alt="Poor Things">
+        <div class="top-info"><div class="top-title">Poor Things</div><div class="top-meta">Yorgos Lanthimos • 2023 • Drama, Fantasi</div></div>
+        <div class="top-score">★ 8.1</div>
+      </div>
+      <div class="top-item">
+        <div class="top-rank">06</div>
+        <img class="top-thumb" src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=120&q=80" alt="The Raid">
+        <div class="top-info"><div class="top-title">The Raid</div><div class="top-meta">Gareth Evans • 2011 • Aksi, Laga</div></div>
+        <div class="top-score">★ 8.0</div>
+      </div>
+      <div class="top-item">
+        <div class="top-rank">07</div>
+        <img class="top-thumb" src="https://images.unsplash.com/photo-1600267204091-5c1ab8b10c02?w=120&q=80" alt="Laskar Pelangi">
+        <div class="top-info"><div class="top-title">Laskar Pelangi</div><div class="top-meta">Riri Riza • 2008 • Drama, Keluarga</div></div>
+        <div class="top-score">★ 8.2</div>
+      </div>
+      <div class="top-item">
+        <div class="top-rank">08</div>
+        <img class="top-thumb" src="https://images.unsplash.com/photo-1542204165-65bf26472b9b?w=120&q=80" alt="Saltburn">
+        <div class="top-info"><div class="top-title">Saltburn</div><div class="top-meta">Emerald Fennell • 2023 • Thriller, Drama</div></div>
+        <div class="top-score">★ 7.3</div>
+      </div>
+    </div>
+    <p class="top-note">Menampilkan 8 dari 100 film. Daftar lengkap segera hadir.</p>
+  </section>
+</div>
+
+<!-- ==================== PAGE: SERI ==================== -->
+<div id="page-seri" class="page">
+  <div class="page-hero">
+    <h1 class="page-hero-title">Serial <em>TV</em></h1>
+    <p class="page-hero-sub">Binge-worthy series dari seluruh dunia — K-Drama, Hollywood, hingga serial lokal</p>
+  </div>
+  <section>
+    <div class="section-header">
+      <h2 class="section-title">Sedang <span>Populer</span></h2>
+    </div>
+    <div class="movie-grid">
+      <div class="movie-card">
+        <img class="movie-poster" src="https://images.unsplash.com/photo-1485846234645-a62644f84728?w=400&q=80" alt="The Bear">
+        <div class="movie-overlay"><div class="overlay-genre">Drama • Kuliner</div><div class="overlay-desc">Seorang koki berbintang kembali ke kampung halaman untuk mengelola restoran keluarganya.</div><button class="overlay-btn">▶ Tonton</button></div>
+        <div class="movie-info"><div class="movie-title">The Bear</div><div class="movie-meta"><span class="movie-year">S3 • 2024</span><span class="movie-rating">★ 9.0</span></div></div>
+      </div>
+      <div class="movie-card">
+        <img class="movie-poster" src="https://images.unsplash.com/photo-1446776877081-d282a0f896e2?w=400&q=80" alt="Shogun">
+        <div class="movie-overlay"><div class="overlay-genre">Drama • Sejarah</div><div class="overlay-desc">Navigator Inggris terdampar di Jepang feodal dan terseret perebutan kekuasaan.</div><button class="overlay-btn">▶ Tonton</button></div>
+        <div class="movie-info"><div class="movie-title">Shogun</div><div class="movie-meta"><span class="movie-year">S1 • 2024</span><span class="movie-rating">★ 8.9</span></div></div>
+      </div>
+      <div class="movie-card">
+        <img class="movie-poster" src="https://images.unsplash.com/photo-1519682337058-a94d519337bc?w=400&q=80" alt="Baby Reindeer">
+        <div class="movie-overlay"><div class="overlay-genre">Thriller • True Story</div><div class="overlay-desc">Komika menghadapi stalking yang mengubah hidupnya selamanya. Kisah nyata yang menegangkan.</div><button class="overlay-btn">▶ Tonton</button></div>
+        <div class="movie-info"><div class="movie-title">Baby Reindeer</div><div class="movie-meta"><span class="movie-year">Mini • 2024</span><span class="movie-rating">★ 8.2</span></div></div>
+      </div>
+      <div class="movie-card">
+        <img class="movie-poster" src="https://images.unsplash.com/photo-1509347528160-9a9e33742cdb?w=400&q=80" alt="House of Dragon">
+        <div class="movie-overlay"><div class="overlay-genre">Fantasi • Drama • Epik</div><div class="overlay-desc">Perang saudara House Targaryen dalam perebutan Iron Throne yang berdarah.</div><button class="overlay-btn">▶ Tonton</button></div>
+        <div class="movie-info"><div class="movie-title">House of the Dragon</div><div class="movie-meta"><span class="movie-year">S2 • 2024</span><span class="movie-rating">★ 8.4</span></div></div>
+      </div>
+    </div>
+
+    <div class="section-header" style="margin-top: 56px;">
+      <h2 class="section-title">K-Drama <span>Pilihan</span></h2>
+    </div>
+    <div class="movie-grid">
+      <div class="movie-card">
+        <img class="movie-poster" src="https://images.unsplash.com/photo-1542204165-65bf26472b9b?w=400&q=80" alt="My Mister">
+        <div class="movie-overlay"><div class="overlay-genre">Drama Korea</div><div class="overlay-desc">Pertemuan dua jiwa yang sama-sama terluka mengubah kehidupan mereka selamanya.</div><button class="overlay-btn">▶ Tonton</button></div>
+        <div class="movie-info"><div class="movie-title">My Mister</div><div class="movie-meta"><span class="movie-year">2018</span><span class="movie-rating">★ 9.2</span></div></div>
+      </div>
+      <div class="movie-card">
+        <img class="movie-poster" src="https://images.unsplash.com/photo-1533562376170-bc66ca7e7e7b?w=400&q=80" alt="Crash Landing">
+        <div class="movie-overlay"><div class="overlay-genre">Romansa • Drama Korea</div><div class="overlay-desc">Chaebol Korea Selatan tidak sengaja mendarat di Korea Utara dan jatuh cinta.</div><button class="overlay-btn">▶ Tonton</button></div>
+        <div class="movie-info"><div class="movie-title">Crash Landing on You</div><div class="movie-meta"><span class="movie-year">2020</span><span class="movie-rating">★ 8.7</span></div></div>
+      </div>
+      <div class="movie-card">
+        <img class="movie-poster" src="https://images.unsplash.com/photo-1611095564985-9c2d8c3e8d3a?w=400&q=80" alt="Squid Game">
+        <div class="movie-overlay"><div class="overlay-genre">Thriller • Drama Korea</div><div class="overlay-desc">456 peserta berhutang besar bertaruh nyawa dalam permainan anak-anak berbahaya.</div><button class="overlay-btn">▶ Tonton</button></div>
+        <div class="movie-info"><div class="movie-title">Squid Game S2</div><div class="movie-meta"><span class="movie-year">2024</span><span class="movie-rating">★ 8.0</span></div></div>
+      </div>
+      <div class="movie-card">
+        <img class="movie-poster" src="https://images.unsplash.com/photo-1574267432553-4b4628081c31?w=400&q=80" alt="Signal">
+        <div class="movie-overlay"><div class="overlay-genre">Misteri • Thriller Korea</div><div class="overlay-desc">Detektif masa kini berkomunikasi dengan detektif masa lalu lewat walkie-talkie ajaib.</div><button class="overlay-btn">▶ Tonton</button></div>
+        <div class="movie-info"><div class="movie-title">Signal</div><div class="movie-meta"><span class="movie-year">2016</span><span class="movie-rating">★ 9.0</span></div></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modal" onclick="if(event.target===this)closeModal()">
+  <div class="modal" id="modal-content">
+    <img class="modal-poster" id="modal-poster" src="" alt="">
+    <div class="modal-body">
+      <div id="modal-genre" class="modal-genre-badge"></div>
+      <h2 class="modal-title" id="modal-title"></h2>
+      <div class="modal-meta">
+        <span id="modal-year"></span>
+        <span id="modal-duration"></span>
+        <span id="modal-rating"></span>
+      </div>
+      <p class="modal-desc" id="modal-desc"></p>
+      <div class="modal-cast">
+        <h4>Pemeran Utama</h4>
+        <div class="cast-list" id="modal-cast"></div>
+      </div>
+      <div class="modal-actions">
+        <button class="btn-primary">▶ Tonton Sekarang</button>
+        <button class="btn-secondary">+ Daftar Tonton</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="cinevault.js" defer></script>
+</body>
+</html>
