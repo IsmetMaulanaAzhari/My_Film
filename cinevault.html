@@ -17,8 +17,10 @@
     <li><a href="#" data-page="terbaru" onclick="navigateTo('terbaru'); return false;">Film Terbaru</a></li>
     <li><a href="#" data-page="genre" onclick="navigateTo('genre'); return false;">Genre</a></li>
     <li><a href="#" data-page="top100" onclick="navigateTo('top100'); return false;">Top 100</a></li>
+    <li><a href="#" data-page="watchlist" onclick="navigateTo('watchlist'); return false;">Watchlist</a></li>
     <li><a href="#" data-page="seri" onclick="navigateTo('seri'); return false;">Seri</a></li>
   </ul>
+  <button class="theme-toggle" type="button" data-theme-toggle aria-label="Ganti tema">◐</button>
   <button class="nav-btn">Masuk</button>
 </nav>
 
@@ -57,7 +59,9 @@
       <option>Semua Genre</option>
       <option>Aksi</option><option>Drama</option><option>Komedi</option>
       <option>Horor</option><option>Sci-Fi</option><option>Romansa</option>
-      <option>Thriller</option><option>Animasi</option>
+      <option>Thriller</option><option>Animasi</option><option>Petualangan</option>
+      <option>Fantasi</option><option>Sejarah</option><option>Korea</option>
+      <option>Kuliner</option><option>True Story</option>
     </select>
     <select class="genre-select">
       <option>Tahun Rilis</option>
@@ -78,6 +82,10 @@
       <button class="genre-pill">Romansa</button>
       <button class="genre-pill">Thriller</button>
       <button class="genre-pill">Animasi</button>
+      <button class="genre-pill">Petualangan</button>
+      <button class="genre-pill">Fantasi</button>
+      <button class="genre-pill">Sejarah</button>
+      <button class="genre-pill">Korea</button>
       <button class="genre-pill">Award Winner</button>
       <button class="genre-pill">Film Indonesia</button>
     </div>
@@ -457,6 +465,22 @@
         <div class="movie-info"><div class="movie-title">Signal</div><div class="movie-meta"><span class="movie-year">2016</span><span class="movie-rating">★ 9.0</span></div></div>
       </div>
     </div>
+  </section>
+</div>
+
+<!-- ==================== PAGE: WATCHLIST ==================== -->
+<div id="page-watchlist" class="page">
+  <div class="page-hero">
+    <h1 class="page-hero-title">Watchlist <em>Saya</em></h1>
+    <p class="page-hero-sub">Simpan film favoritmu di sini dan buka lagi kapan saja.</p>
+  </div>
+  <section>
+    <div class="section-header">
+      <h2 class="section-title">Film <span>Tersimpan</span></h2>
+      <a class="see-all" href="#" onclick="navigateTo('beranda'); return false;">Kembali ke Beranda →</a>
+    </div>
+    <div class="movie-grid" id="watchlist-grid"></div>
+    <p class="empty-state" id="watchlist-empty">Belum ada film favorit. Klik tombol simpan di kartu film untuk menambahkannya ke watchlist.</p>
   </section>
 </div>
 
