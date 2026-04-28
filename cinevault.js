@@ -48,6 +48,146 @@ const movies = {
     poster: 'https://images.unsplash.com/photo-1519682337058-a94d519337bc?w=500&q=80',
     desc: 'Riley kini menginjak masa remaja dan emosi-emosi baru mulai bermunculan di dalam benaknya. Selain lima emosi lama, hadir Anxiety (Kecemasan) dan emosi-emosi baru yang membuat semuanya menjadi kacau.',
     cast: ['Amy Poehler', 'Maya Hawke', 'Kensington Tallman', 'Liza Lapira']
+  },
+  inception: {
+    title: 'Inception',
+    genre: 'Sci-Fi • Thriller • Aksi',
+    year: '2010',
+    duration: '2j 28m',
+    rating: '★ 8.8 / 10',
+    poster: 'https://images.unsplash.com/photo-1505685296765-3a2736de412f?w=500&q=80',
+    desc: 'Seorang pencuri yang mencuri rahasia melalui infiltrasi ke alam mimpi ditawari kesempatan untuk menghapus catatan kejahatannya dengan menanamkan sebuah ide ke dalam pikiran target.',
+    cast: ['Leonardo DiCaprio', 'Joseph Gordon-Levitt', 'Elliot Page']
+  },
+  interstellar: {
+    title: 'Interstellar',
+    genre: 'Sci-Fi • Drama • Petualangan',
+    year: '2014',
+    duration: '2j 49m',
+    rating: '★ 8.6 / 10',
+    poster: 'https://images.unsplash.com/photo-1444703686981-a3abbc4d4fe3?w=500&q=80',
+    desc: 'Sekelompok penjelajah ruang angkasa melakukan perjalanan melalui lubang cacing untuk mencari dunia baru yang dapat dihuni manusia ketika Bumi menghadapi kehancuran ekologis.',
+    cast: ['Matthew McConaughey', 'Anne Hathaway', 'Jessica Chastain']
+  },
+  the_dark_knight: {
+    title: 'The Dark Knight',
+    genre: 'Aksi • Kriminal • Drama',
+    year: '2008',
+    duration: '2j 32m',
+    rating: '★ 9.0 / 10',
+    poster: 'https://images.unsplash.com/photo-1499084732479-de2c02d45fc4?w=500&q=80',
+    desc: 'Batman menghadapi Joker, seorang penjahat anarkis yang menguji batas moral dan kemanusiaan Gotham.',
+    cast: ['Christian Bale', 'Heath Ledger', 'Aaron Eckhart']
+  },
+  parasit: {
+    title: 'Parasite',
+    genre: 'Thriller • Drama • Satir',
+    year: '2019',
+    duration: '2j 12m',
+    rating: '★ 8.6 / 10',
+    poster: 'https://images.unsplash.com/photo-1534447677768-be436bb09401?w=500&q=80',
+    desc: 'Keluarga miskin secara perlahan menyusup ke kehidupan keluarga kaya, memicu serangkaian peristiwa yang berujung pada tragedi sosial dan moral.',
+    cast: ['Song Kang-ho', 'Lee Sun-kyun', 'Cho Yeo-jeong']
+  },
+  shawshank: {
+    title: 'The Shawshank Redemption',
+    genre: 'Drama • Persahabatan',
+    year: '1994',
+    duration: '2j 22m',
+    rating: '★ 9.3 / 10',
+    poster: 'https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=500&q=80',
+    desc: 'Kisah seorang pria yang dipenjara karena kejahatan yang tidak dilakukannya dan harapannya untuk kebebasan serta persahabatan di dalam penjara.',
+    cast: ['Tim Robbins', 'Morgan Freeman']
+  },
+  the_godfather: {
+    title: 'The Godfather',
+    genre: 'Kriminal • Drama',
+    year: '1972',
+    duration: '2j 55m',
+    rating: '★ 9.2 / 10',
+    poster: 'https://images.unsplash.com/photo-1524985069026-dd778a71c7b4?w=500&q=80',
+    desc: 'Kisah keluarga mafia Corleone dan naik turunnya kekuasaan di dalam organisasi kriminal mereka.',
+    cast: ['Marlon Brando', 'Al Pacino', 'James Caan']
+  },
+  spirited_away: {
+    title: "Spirited Away",
+    genre: 'Animasi • Fantasi • Petualangan',
+    year: '2001',
+    duration: '2j 5m',
+    rating: '★ 8.6 / 10',
+    poster: 'https://images.unsplash.com/photo-1526318472351-c75fcf070dd8?w=500&q=80',
+    desc: 'Seorang gadis kecil tersesat di dunia roh dan harus bekerja di pemandian untuk menyelamatkan orang tuanya dan kembali ke dunia manusia.',
+    cast: ['Rumi Hiiragi', 'Miyu Irino']
+  },
+  the_matrix: {
+    title: 'The Matrix',
+    genre: 'Sci-Fi • Aksi',
+    year: '1999',
+    duration: '2j 16m',
+    rating: '★ 8.7 / 10',
+    poster: 'https://images.unsplash.com/photo-1508830524289-0adcbe822b40?w=500&q=80',
+    desc: 'Seorang hacker menemukan bahwa dunia yang ia tinggali adalah simulasi canggih dan bergabung dengan kelompok pemberontak untuk melawan mesin.',
+    cast: ['Keanu Reeves', 'Laurence Fishburne', 'Carrie-Anne Moss']
+  },
+  train_to_busan: {
+    title: 'Train to Busan',
+    genre: 'Horror • Thriller • Aksi',
+    year: '2016',
+    duration: '1j 58m',
+    rating: '★ 7.6 / 10',
+    poster: 'https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=500&q=80',
+    desc: 'Penumpang kereta harus berjuang bertahan hidup ketika wabah zombie menyebar di Korea Selatan, menimbulkan keputusan moral dan pengorbanan.',
+    cast: ['Gong Yoo', 'Ma Dong-seok', 'Jung Yu-mi']
+  },
+  the_raid: {
+    title: 'The Raid',
+    genre: 'Aksi • Kriminal',
+    year: '2011',
+    duration: '1j 41m',
+    rating: '★ 7.6 / 10',
+    poster: 'https://images.unsplash.com/photo-1505682634904-d7c7c0f6b8c1?w=500&q=80',
+    desc: 'Pasukan polisi terjebak dalam sebuah gedung penuh penjahat dan harus bertarung dari lantai ke lantai untuk bertahan hidup.',
+    cast: ['Iko Uwais', 'Joe Taslim']
+  },
+  pengabdi_setan: {
+    title: 'Pengabdi Setan',
+    genre: 'Horror • Thriller',
+    year: '2017',
+    duration: '1j 45m',
+    rating: '★ 7.0 / 10',
+    poster: 'https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?w=500&q=80',
+    desc: 'Keluarga yang kembali tinggal di rumah besar harus menghadapi kejadian gaib setelah sang ibu mengalami penyakit misterius.',
+    cast: ['Tara Basro', 'Bront Palarae']
+  },
+  ada_apa_dengan_cinta: {
+    title: 'Ada Apa Dengan Cinta?',
+    genre: 'Romansa • Drama',
+    year: '2002',
+    duration: '1j 50m',
+    rating: '★ 7.9 / 10',
+    poster: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&q=80',
+    desc: 'Romansa remaja yang menjadi ikon sinema Indonesia, mengikuti kisah Cinta dan Rangga di masa sekolah menengah.',
+    cast: ['Dian Sastrowardoyo', 'Nicholas Saputra']
+  },
+  laskar_pelangi: {
+    title: 'Laskar Pelangi',
+    genre: 'Drama • Inspirasi',
+    year: '2008',
+    duration: '2j 0m',
+    rating: '★ 7.7 / 10',
+    poster: 'https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?w=500&q=80',
+    desc: 'Kisah sekelompok anak di Belitung yang berjuang tetap bersekolah di tengah keterbatasan, penuh harapan dan persahabatan.',
+    cast: ['Zulfanny', 'Ikal']
+  },
+  la_la_land: {
+    title: 'La La Land',
+    genre: 'Musikal • Romansa',
+    year: '2016',
+    duration: '2j 8m',
+    rating: '★ 8.0 / 10',
+    poster: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=500&q=80',
+    desc: 'Seorang pianis jazz dan seorang calon aktris berjuang mengejar impian mereka di Los Angeles, membaurkan realitas dan harapan.',
+    cast: ['Ryan Gosling', 'Emma Stone']
   }
 };
 
@@ -78,6 +218,14 @@ function loadWatchlist() {
 function saveWatchlist(items) {
   watchlistCache = items;
   localStorage.setItem(STORAGE_KEYS.watchlist, JSON.stringify(items));
+}
+
+function updateWatchlistBadge() {
+  const el = document.getElementById('watchlist-badge');
+  if (!el) return;
+  const count = Array.isArray(watchlistCache) ? watchlistCache.length : 0;
+  el.textContent = String(count);
+  el.style.display = count ? 'inline-flex' : 'none';
 }
 
 function applyTheme(theme) {
@@ -256,6 +404,7 @@ function toggleWatchlist(movieRef) {
   saveWatchlist(watchlistCache);
   updateWatchlistButtons();
   renderWatchlistPage();
+  updateWatchlistBadge();
 }
 
 function createWatchlistCard(movie) {
@@ -441,5 +590,6 @@ document.addEventListener('DOMContentLoaded', () => {
   bindThemeToggle();
   bindModalEscape();
   renderWatchlistPage();
+  updateWatchlistBadge();
   applyFilters();
 });
