@@ -713,3 +713,16 @@ body[data-theme="light"] footer {
   .coming-card { flex-wrap: wrap; }
   .top-item { padding: 12px 8px; }
 }
+select.sort-select {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 11px 12px;
+  color: var(--text);
+  font-size: 14px;
+  font-family: 'DM Sans', sans-serif;
+  outline: none;
+  min-width: 180px;
+  cursor: pointer;
+}
+body[data-theme="light"] select.sort-select { background: rgba(255,255,255,0.86); }

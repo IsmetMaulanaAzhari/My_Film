@@ -471,6 +471,9 @@ function setupMovieCards() {
     card.dataset.title = normalizeText(data.title);
     card.dataset.genre = normalizeText(data.genre);
     card.dataset.year = normalizeText(data.year);
+    // store numeric rating for sorting; try to extract number like 8.9
+    const ratingMatch = String(data.rating || '').match(/(\d+(?:\.\d+)?)/);
+    card.dataset.rating = ratingMatch ? ratingMatch[0] : '';
     card.dataset.search = normalizeText([data.title, data.genre, data.desc, data.year, data.rating].join(' '));
 
     if (!card.querySelector('.watchlist-btn')) {
@@ -489,6 +492,36 @@ function setupMovieCards() {
 
     updateWatchlistButtons();
   });
+}
+
+function parseCardRating(card) {
+  const r = card.dataset.rating || '';
+  const n = parseFloat(String(r).replace(',', '.'));
+  return Number.isFinite(n) ? n : -Infinity;
+}
+
+function sortGrid(grid, sortBy) {
+  if (!grid) return;
+  const items = Array.from(grid.querySelectorAll('.movie-card'));
+  let sorted = items.slice();
+
+  if (sortBy === 'default' || !sortBy) {
+    // leave as-is (document order)
+    return;
+  }
+
+  sorted = sorted.sort((a, b) => {
+    if (sortBy === 'rating-desc') return parseCardRating(b) - parseCardRating(a);
+    if (sortBy === 'rating-asc') return parseCardRating(a) - parseCardRating(b);
+    if (sortBy === 'year-desc') return (parseInt(b.dataset.year) || 0) - (parseInt(a.dataset.year) || 0);
+    if (sortBy === 'year-asc') return (parseInt(a.dataset.year) || 0) - (parseInt(b.dataset.year) || 0);
+    if (sortBy === 'title-asc') return (a.dataset.title || '').localeCompare(b.dataset.title || '');
+    if (sortBy === 'title-desc') return (b.dataset.title || '').localeCompare(a.dataset.title || '');
+    return 0;
+  });
+
+  // Append in order to reorder DOM (stable sort)
+  sorted.forEach(node => grid.appendChild(node));
 }
 
 function syncGenrePillsWithSelect() {
@@ -536,6 +569,14 @@ function applyFilters() {
   }
 
   syncGenrePillsWithSelect();
+
+  // Apply sorting on main grids inside active page
+  const sortSelect = document.querySelector('.sort-select');
+  const sortBy = sortSelect?.value || 'default';
+  const mainGrid = activePage.querySelector('.movie-grid');
+  if (mainGrid) sortGrid(mainGrid, sortBy);
+  const watchGrid = activePage.querySelector('#watchlist-grid');
+  if (watchGrid) sortGrid(watchGrid, sortBy);
 }
 
 function bindFilterControls() {
@@ -543,10 +584,12 @@ function bindFilterControls() {
   const genreSelect = document.querySelectorAll('.genre-select')[0];
   const yearSelect = document.querySelectorAll('.genre-select')[1];
   const searchButton = document.querySelector('.search-btn');
+  const sortSelect = document.querySelector('.sort-select');
 
   searchInput?.addEventListener('input', applyFilters);
   genreSelect?.addEventListener('change', applyFilters);
   yearSelect?.addEventListener('change', applyFilters);
+  sortSelect?.addEventListener('change', applyFilters);
   searchButton?.addEventListener('click', event => {
     event.preventDefault();
     applyFilters();
