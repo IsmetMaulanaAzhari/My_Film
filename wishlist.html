@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CineVault - Watchlist</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="index.html">Cine<span>Vault</span></a>
+  <ul>
+    <li><a href="index.html">Beranda</a></li>
+    <li><a href="genre.html">Genre</a></li>
+    <li><a href="wishlist.html" class="nav-active">Watchlist <span id="watchlist-badge" class="watchlist-badge" aria-hidden="true">0</span></a></li>
+  </ul>
+  <button class="theme-toggle" type="button" data-theme-toggle aria-label="Ganti tema">◐</button>
+  <button class="nav-btn">Masuk</button>
+</nav>
+
+<div class="page active">
+  <div class="page-hero">
+    <h1 class="page-hero-title">Watchlist <em>Saya</em></h1>
+    <p class="page-hero-sub">Semua film favoritmu tersimpan di sini dan bisa dibuka kapan saja.</p>
+  </div>
+
+  <section>
+    <div class="section-header">
+      <h2 class="section-title">Film <span>Tersimpan</span></h2>
+      <a class="see-all" href="index.html">Kembali ke Beranda →</a>
+    </div>
+    <div class="movie-grid" id="watchlist-grid"></div>
+    <p class="empty-state" id="watchlist-empty">Belum ada film favorit. Klik tombol simpan di kartu film untuk menambahkannya ke watchlist.</p>
+  </section>
+
+  <section>
+    <div class="section-header">
+      <h2 class="section-title">Kenapa <span>Watchlist</span>?</h2>
+    </div>
+    <div class="movie-grid">
+      <div class="movie-card">
+        <img class="movie-poster" src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=400&q=80" alt="Simpan film">
+        <div class="movie-overlay"><div class="overlay-genre">Praktis</div><div class="overlay-desc">Simpan film yang ingin ditonton nanti agar tidak hilang di antara ratusan judul.</div><button class="overlay-btn">Lihat Fitur</button></div>
+        <div class="movie-info"><div class="movie-title">Simpan Favorit</div><div class="movie-meta"><span class="movie-year">1 klik</span><span class="movie-rating">★ Cepat</span></div></div>
+      </div>
+      <div class="movie-card">
+        <img class="movie-poster" src="https://images.unsplash.com/photo-1505685296765-3a2736de412f?w=400&q=80" alt="Buka detail">
+        <div class="movie-overlay"><div class="overlay-genre">Detail</div><div class="overlay-desc">Buka ulang detail film favoritmu tanpa harus mencari dari awal.</div><button class="overlay-btn">Lihat Fitur</button></div>
+        <div class="movie-info"><div class="movie-title">Buka Lagi</div><div class="movie-meta"><span class="movie-year">Kapan saja</span><span class="movie-rating">★ Mudah</span></div></div>
+      </div>
+      <div class="movie-card">
+        <img class="movie-poster" src="https://images.unsplash.com/photo-1542204165-65bf26472b9b?w=400&q=80" alt="Sinkron">
+        <div class="movie-overlay"><div class="overlay-genre">Persisten</div><div class="overlay-desc">Watchlist tersimpan di browser melalui localStorage.</div><button class="overlay-btn">Lihat Fitur</button></div>
+        <div class="movie-info"><div class="movie-title">Tersimpan Otomatis</div><div class="movie-meta"><span class="movie-year">LocalStorage</span><span class="movie-rating">★ Aman</span></div></div>
+      </div>
+      <div class="movie-card">
+        <img class="movie-poster" src="https://images.unsplash.com/photo-1509347528160-9a9e33742cdb?w=400&q=80" alt="Tema">
+        <div class="movie-overlay"><div class="overlay-genre">Tema</div><div class="overlay-desc">Tetap nyaman dipakai siang atau malam dengan dark/light mode.</div><button class="overlay-btn">Lihat Fitur</button></div>
+        <div class="movie-info"><div class="movie-title">Dark / Light Mode</div><div class="movie-meta"><span class="movie-year">Auto</span><span class="movie-rating">★ Nyaman</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-logo">Cine<span>Vault</span></div>
+        <div class="footer-desc">Kelola daftar tontonanmu di halaman khusus supaya lebih terpisah dari beranda.</div>
+      </div>
+      <div class="footer-col">
+        <h4>Navigasi</h4>
+        <ul>
+          <li><a href="index.html">Beranda</a></li>
+          <li><a href="genre.html">Genre</a></li>
+          <li><a href="wishlist.html">Watchlist</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2024 CineVault.</p>
+      <p>Halaman watchlist terpisah dari beranda.</p>
+    </div>
+  </footer>
+</div>
+
+<div class="modal-overlay" id="modal" onclick="if(event.target===this)closeModal()">
+  <div class="modal" id="modal-content">
+    <img class="modal-poster" id="modal-poster" src="" alt="">
+    <div class="modal-body">
+      <div id="modal-genre" class="modal-genre-badge"></div>
+      <h2 class="modal-title" id="modal-title"></h2>
+      <div class="modal-meta">
+        <span id="modal-year"></span>
+        <span id="modal-duration"></span>
+        <span id="modal-rating"></span>
+      </div>
+      <p class="modal-desc" id="modal-desc"></p>
+      <div class="modal-cast">
+        <h4>Pemeran Utama</h4>
+        <div class="cast-list" id="modal-cast"></div>
+      </div>
+      <div class="modal-actions">
+        <button class="btn-primary">▶ Tonton Sekarang</button>
+        <button class="btn-secondary">+ Daftar Tonton</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="index.js" defer></script>
+</body>
+</html>

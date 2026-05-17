@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CineVault - Genre Film</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="index.html">Cine<span>Vault</span></a>
+  <ul>
+    <li><a href="index.html">Beranda</a></li>
+    <li><a href="genre.html" class="nav-active">Genre</a></li>
+    <li><a href="wishlist.html">Watchlist</a></li>
+  </ul>
+  <button class="theme-toggle" type="button" data-theme-toggle aria-label="Ganti tema">◐</button>
+  <button class="nav-btn">Masuk</button>
+</nav>
+
+<div class="page active">
+  <div class="page-hero">
+    <h1 class="page-hero-title">Jelajahi <em>Genre</em></h1>
+    <p class="page-hero-sub">Buka kategori film yang kamu suka tanpa harus kembali ke beranda.</p>
+  </div>
+
+  <section>
+    <div class="section-header">
+      <h2 class="section-title">Genre <span>Paling Dicari</span></h2>
+    </div>
+    <div class="genre-big-grid">
+      <div class="genre-big-card" style="--gc: #8a1a17;"><div class="genre-icon">🎬</div><div class="genre-big-name">Aksi</div><div class="genre-big-count">1.240 Film</div></div>
+      <div class="genre-big-card" style="--gc: #1a3a6a;"><div class="genre-icon">💔</div><div class="genre-big-name">Drama</div><div class="genre-big-count">2.108 Film</div></div>
+      <div class="genre-big-card" style="--gc: #6a5000;"><div class="genre-icon">😂</div><div class="genre-big-name">Komedi</div><div class="genre-big-count">980 Film</div></div>
+      <div class="genre-big-card" style="--gc: #0f2e22;"><div class="genre-icon">👻</div><div class="genre-big-name">Horor</div><div class="genre-big-count">756 Film</div></div>
+      <div class="genre-big-card" style="--gc: #0d1f3c;"><div class="genre-icon">🚀</div><div class="genre-big-name">Sci-Fi</div><div class="genre-big-count">634 Film</div></div>
+      <div class="genre-big-card" style="--gc: #3d1a4d;"><div class="genre-icon">❤️</div><div class="genre-big-name">Romansa</div><div class="genre-big-count">890 Film</div></div>
+      <div class="genre-big-card" style="--gc: #2a2a0d;"><div class="genre-icon">🔪</div><div class="genre-big-name">Thriller</div><div class="genre-big-count">710 Film</div></div>
+      <div class="genre-big-card" style="--gc: #0d3030;"><div class="genre-icon">🎨</div><div class="genre-big-name">Animasi</div><div class="genre-big-count">430 Film</div></div>
+      <div class="genre-big-card" style="--gc: #2d1a00;"><div class="genre-icon">🗺️</div><div class="genre-big-name">Petualangan</div><div class="genre-big-count">560 Film</div></div>
+      <div class="genre-big-card" style="--gc: #1a2d1a;"><div class="genre-icon">📜</div><div class="genre-big-name">Sejarah</div><div class="genre-big-count">320 Film</div></div>
+      <div class="genre-big-card" style="--gc: #27405f;"><div class="genre-icon">🇰🇷</div><div class="genre-big-name">Korea</div><div class="genre-big-count">410 Film</div></div>
+      <div class="genre-big-card" style="--gc: #5c2e14;"><div class="genre-icon">🍜</div><div class="genre-big-name">Kuliner</div><div class="genre-big-count">110 Film</div></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-header">
+      <h2 class="section-title">Mulai Dari <span>Sini</span></h2>
+    </div>
+    <div class="movie-grid">
+      <div class="movie-card">
+        <img class="movie-poster" src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?w=400&q=80" alt="Aksi">
+        <div class="movie-overlay"><div class="overlay-genre">Aksi • Petualangan</div><div class="overlay-desc">Cocok untuk kamu yang suka tempo cepat, ledakan, dan adegan besar.</div><button class="overlay-btn">Lihat Koleksi</button></div>
+        <div class="movie-info"><div class="movie-title">Pilihan Film Aksi</div><div class="movie-meta"><span class="movie-year">Rekomendasi</span><span class="movie-rating">★ Populer</span></div></div>
+      </div>
+      <div class="movie-card">
+        <img class="movie-poster" src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=400&q=80" alt="Drama">
+        <div class="movie-overlay"><div class="overlay-genre">Drama • Emosional</div><div class="overlay-desc">Cerita karakter yang kuat, konflik batin, dan dialog yang dalam.</div><button class="overlay-btn">Lihat Koleksi</button></div>
+        <div class="movie-info"><div class="movie-title">Pilihan Film Drama</div><div class="movie-meta"><span class="movie-year">Rekomendasi</span><span class="movie-rating">★ Populer</span></div></div>
+      </div>
+      <div class="movie-card">
+        <img class="movie-poster" src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=400&q=80" alt="Horor">
+        <div class="movie-overlay"><div class="overlay-genre">Horor • Thriller</div><div class="overlay-desc">Buat suasana malam makin tegang dengan koleksi yang bikin deg-degan.</div><button class="overlay-btn">Lihat Koleksi</button></div>
+        <div class="movie-info"><div class="movie-title">Pilihan Film Horor</div><div class="movie-meta"><span class="movie-year">Rekomendasi</span><span class="movie-rating">★ Populer</span></div></div>
+      </div>
+      <div class="movie-card">
+        <img class="movie-poster" src="https://images.unsplash.com/photo-1509347528160-9a9e33742cdb?w=400&q=80" alt="Sci-Fi">
+        <div class="movie-overlay"><div class="overlay-genre">Sci-Fi • Fantasi</div><div class="overlay-desc">Eksplor dunia masa depan, teknologi canggih, dan konsep yang unik.</div><button class="overlay-btn">Lihat Koleksi</button></div>
+        <div class="movie-info"><div class="movie-title">Pilihan Film Sci-Fi</div><div class="movie-meta"><span class="movie-year">Rekomendasi</span><span class="movie-rating">★ Populer</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-logo">Cine<span>Vault</span></div>
+        <div class="footer-desc">Jelajahi genre favoritmu dari satu halaman yang lebih rapi dan terpisah.</div>
+      </div>
+      <div class="footer-col">
+        <h4>Navigasi</h4>
+        <ul>
+          <li><a href="index.html">Beranda</a></li>
+          <li><a href="genre.html">Genre</a></li>
+          <li><a href="wishlist.html">Watchlist</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2024 CineVault.</p>
+      <p>Halaman genre terpisah dari beranda.</p>
+    </div>
+  </footer>
+</div>
+
+<script src="index.js" defer></script>
+</body>
+</html>

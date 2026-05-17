@@ -345,12 +345,18 @@ function openModal(movieRef) {
   if (!movie) return;
 
   renderModalMovie(movie);
-  document.getElementById('modal').classList.add('open');
+  const modal = document.getElementById('modal');
+  if (modal) {
+    modal.classList.add('open');
+  }
   document.body.style.overflow = 'hidden';
 }
 
 function closeModal() {
-  document.getElementById('modal').classList.remove('open');
+  const modal = document.getElementById('modal');
+  if (modal) {
+    modal.classList.remove('open');
+  }
   document.body.style.overflow = '';
 }
 
@@ -450,6 +456,8 @@ function renderWatchlistPage() {
     card.dataset.title = normalizeText(movie.title);
     card.dataset.genre = normalizeText(movie.genre);
     card.dataset.year = normalizeText(movie.year);
+    const ratingMatch = String(movie.rating || '').match(/(\d+(?:\.\d+)?)/);
+    card.dataset.rating = ratingMatch ? ratingMatch[0] : '';
     card.dataset.search = normalizeText([movie.title, movie.genre, movie.desc, movie.year, movie.rating].join(' '));
 
     card.addEventListener('click', () => openModal(movie));
@@ -465,6 +473,10 @@ function renderWatchlistPage() {
 }
 
 function setupMovieCards() {
+  if (!document.querySelector('.search-bar')) {
+    return;
+  }
+
   document.querySelectorAll('.movie-card').forEach(card => {
     const data = getMovieDataFromCard(card);
     card.dataset.movieId = data.id;
