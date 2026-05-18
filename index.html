@@ -15,9 +15,9 @@
   <ul>
     <li><a href="#" data-page="beranda" onclick="navigateTo('beranda'); return false;">Beranda</a></li>
     <li><a href="#" data-page="terbaru" onclick="navigateTo('terbaru'); return false;">Film Terbaru</a></li>
-    <li><a href="genre.html">Genre</a></li>
+    <li><a href="#" data-page="genre" onclick="navigateTo('genre'); return false;">Genre</a></li>
     <li><a href="#" data-page="top100" onclick="navigateTo('top100'); return false;">Top 100</a></li>
-    <li><a href="wishlist.html">Watchlist <span id="watchlist-badge" class="watchlist-badge" aria-hidden="true">0</span></a></li>
+    <li><a href="#" data-page="watchlist" onclick="navigateTo('watchlist'); return false;">Watchlist <span id="watchlist-badge" class="watchlist-badge" aria-hidden="true">0</span></a></li>
     <li><a href="#" data-page="seri" onclick="navigateTo('seri'); return false;">Seri</a></li>
   </ul>
   <button class="theme-toggle" type="button" data-theme-toggle aria-label="Ganti tema">◐</button>
@@ -42,7 +42,7 @@
           <svg width="16" height="16" viewBox="0 0 16 16" fill="white"><polygon points="5,3 13,8 5,13"/></svg>
           Tonton Sekarang
         </a>
-        <a class="btn-secondary" href="#">
+        <a class="btn-secondary" href="#" data-add-watchlist="oppenheimer">
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="white" stroke-width="1.5"><circle cx="8" cy="8" r="7"/><path d="M6 8h4M8 6v4"/></svg>
           Tambah ke Daftar
         </a>
@@ -512,7 +512,7 @@
       </div>
       <div class="modal-actions">
         <button class="btn-primary">▶ Tonton Sekarang</button>
-        <button class="btn-secondary">+ Daftar Tonton</button>
+        <button class="btn-secondary" id="modal-add-watchlist" type="button">+ Daftar Tonton</button>
       </div>
     </div>
   </div>

@@ -343,8 +343,9 @@ function navigateTo(pageId) {
 function openModal(movieRef) {
   const movie = getStoredMovie(movieRef);
   if (!movie) return;
-
   renderModalMovie(movie);
+  // remember which movie is currently shown in modal for watchlist actions
+  try { window.currentModalMovieRef = movieRef; } catch (e) { /* noop */ }
   const modal = document.getElementById('modal');
   if (modal) {
     modal.classList.add('open');
@@ -358,6 +359,7 @@ function closeModal() {
     modal.classList.remove('open');
   }
   document.body.style.overflow = '';
+  try { window.currentModalMovieRef = null; } catch (e) { /* noop */ }
 }
 
 function extractWatchlistEntry(card) {
@@ -411,6 +413,39 @@ function toggleWatchlist(movieRef) {
   updateWatchlistButtons();
   renderWatchlistPage();
   updateWatchlistBadge();
+
+  // show small confirmation toast
+  const added = existingIndex === -1;
+  showToast(added ? 'Ditambahkan ke Watchlist' : 'Dihapus dari Watchlist');
+}
+
+// small transient toast notification
+function showToast(message, timeout = 2200) {
+  try {
+    let container = document.getElementById('toast-container');
+    if (!container) {
+      container = document.createElement('div');
+      container.id = 'toast-container';
+      container.style.position = 'fixed';
+      container.style.right = '20px';
+      container.style.bottom = '20px';
+      container.style.zIndex = 2000;
+      document.body.appendChild(container);
+    }
+
+    const el = document.createElement('div');
+    el.className = 'cine-toast';
+    el.textContent = message;
+    container.appendChild(el);
+
+    setTimeout(() => {
+      el.style.opacity = '0';
+      setTimeout(() => el.remove(), 300);
+    }, timeout);
+  } catch (e) {
+    // ignore
+    console.warn('Toast error', e);
+  }
 }
 
 function createWatchlistCard(movie) {
@@ -647,4 +682,20 @@ document.addEventListener('DOMContentLoaded', () => {
   renderWatchlistPage();
   updateWatchlistBadge();
   applyFilters();
+
+  // Click delegation for elements that should add to watchlist
+  document.addEventListener('click', event => {
+    const el = event.target.closest && event.target.closest('[data-add-watchlist]');
+    if (!el) return;
+    event.preventDefault();
+    const ref = el.getAttribute('data-add-watchlist');
+    if (ref) toggleWatchlist(ref);
+  });
+
+  // Modal add-to-watchlist button
+  const modalAdd = document.getElementById('modal-add-watchlist');
+  modalAdd?.addEventListener('click', () => {
+    const ref = window.currentModalMovieRef;
+    if (ref) toggleWatchlist(ref);
+  });
 });
